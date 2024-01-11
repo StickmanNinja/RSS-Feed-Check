@@ -1,0 +1,70 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Home Page</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .column {
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px;
+        }
+        .rss-form {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h1>
+
+    <!-- Seth's Column -->
+    <div class="column">
+        <h2>Seth</h2>
+        <form action="/submit_rss" method="post" class="rss-form">
+            <label for="seth_rss">Submit new RSS URL for Seth:</label>
+            <input type="text" id="seth_rss" name="seth_rss" required>
+            <input type="submit" value="Submit">
+        </form>
+        <!-- Display current Seth's RSS feeds -->
+        <h3>Current Seth's RSS Feeds:</h3>
+        <ul>
+            {% for item in seth_feeds %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Jack's Column -->
+    <div class="column">
+        <h2>Jack</h2>
+        <form action="/submit_rss" method="post" class="rss-form">
+            <label for="jack_rss">Submit new RSS URL for Jack:</label>
+            <input type="text" id="jack_rss" name="jack_rss" required>
+            <input type="submit" value="Submit">
+        </form>
+        <!-- Display current Jack's RSS feeds -->
+        <h3>Current Jack's RSS Feeds:</h3>
+        <ul>
+            {% for item in jack_feeds %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Global RSS Feeds -->
+    <div>
+        <h2>Global RSS Feeds:</h2>
+        <ul>
+            {% for item in global_feeds %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
