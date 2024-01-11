@@ -1,0 +1,17 @@
+<!-- templates/feed.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ username }}'s Feed</title>
+</head>
+<body>
+    <h1>{{ username }}'s Feed</h1>
+    <ul>
+        {% for item in user_feed %}
+            <li><a href="{{ item.link }}" target="_blank">{{ item.headline }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
